@@ -1,11 +1,11 @@
 /*
- * Created by pujianto131.
+ * Created by pujianto131
+ * 
  */
 
 import java.util.*;
 
 public class Regresi{
-
     //declarations
     private static int[] X={10, 11, 12, 14, 16, 18, 19, 20};
     private static int[] Y={
@@ -13,13 +13,21 @@ public class Regresi{
                             11000, 12000, 12500,
                             14000, 13900
                         };
-    private static int totX=0,totY=0, totX2=0, totXY=0, pembilang,
-                        penyebut, rataX, rataY;
-    private static int M, C, er, YMC, nilaiY;
-    private static int batas=X.length, i=0, nilaiX;
+    private static int 
+                        totX=0,
+                        totY=0, 
+                        totX2=0, 
+                        totXY=0, 
+                        pembilang,
+                        penyebut, 
+                        rataX,rataY,M, C,
+                        nilaiY,
+                        batas=X.length, 
+                        i=0, nilaiX;
     private static double abs;
    
 
+    //main
     public static void main(String[] args) {
         //iterasi
         System.out.println("\n\ni \tX \tY");
