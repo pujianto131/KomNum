@@ -8,17 +8,21 @@ public class Regresi{
 
     //declarations
     private static int[] X={10, 11, 12, 14, 16, 18, 19, 20};
-    private static int[] Y={10000, 11000, 9900, 11000, 12000, 12500,
-                            14000, 13900};
+    private static int[] Y={
+                            10000, 11000, 9900, 
+                            11000, 12000, 12500,
+                            14000, 13900
+                        };
     private static int totX=0,totY=0, totX2=0, totXY=0, pembilang,
                         penyebut, rataX, rataY;
     private static int M, C, er, YMC, nilaiY;
     private static int batas=X.length, i=0, nilaiX;
-    public static void main(String[] args) {
-        Scanner key= new Scanner(System.in);
+    private static double abs;
+   
 
+    public static void main(String[] args) {
         //iterasi
-        System.out.println("i \tX \tY");
+        System.out.println("\n\ni \tX \tY");
         System.out.println("--------------------------------");
         while (i != batas) {
             totX = totX + X[i];
@@ -26,7 +30,6 @@ public class Regresi{
             totXY = totXY + (X[i] * Y[i]);
             totX2 = totX2 + (X[i] * X[i]);
             System.out.println(i + "\t" + X[i] + "\t" + Y[i] );
-                                // totX + "\t" + totXY + "\t" + totX2);
             i++;            
         }
         pembilang = batas*totXY - totX*totY;
@@ -50,10 +53,31 @@ public class Regresi{
             "\nrataY\t\t:"+rataY);
 
         while (true) {
+            Scanner key= new Scanner(System.in);
+            boolean matrix = false;
+            int k=0;
+
+            System.out.println("--------------------------------");
             System.out.print("input Nilai\t: ");
             nilaiX = key.nextInt();
+            // key.close();
             nilaiY = FungsiY(M, nilaiX, C);
-            System.out.println("nilai Y\t: "+nilaiY);
+            
+            for(int j=0; j<batas;j++) {
+                if(nilaiX == X[j]){
+                    matrix = true;
+                    k=j;
+                }
+            }
+            if(matrix == false){
+                System.out.println("nilai Y\t: "+nilaiY);
+                System.out.println("absolut invalid");            
+            }else{
+                System.out.println("nilai Y asli \t: "+Y[k]);
+                System.out.println("nilai Y new\t: "+nilaiY);
+                abs = Y[k]-nilaiY;
+                System.out.println("absolut\t\t: "+abs);               
+            }
         }        
     }
 
