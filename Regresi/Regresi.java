@@ -1,6 +1,5 @@
 /*
  * Created by pujianto131
- * 
  */
 
 import java.util.*;
@@ -13,8 +12,7 @@ public class Regresi{
                             11000, 12000, 12500,
                             14000, 13900
                         };
-    private static int 
-                        totX=0,
+    private static float totX=0,
                         totY=0, 
                         totX2=0, 
                         totXY=0, 
@@ -23,13 +21,13 @@ public class Regresi{
                         rataX,rataY,M, C,
                         nilaiY,
                         batas=X.length, 
-                        i=0, nilaiX;
-    private static double abs;
-   
+                        nilaiX;
+    private static float abs;   
 
     //main
     public static void main(String[] args) {
         //iterasi
+        int i=0;
         System.out.println("\n\ni \tX \tY");
         System.out.println("--------------------------------");
         while (i != batas) {
@@ -62,13 +60,13 @@ public class Regresi{
 
         while (true) {
             Scanner key= new Scanner(System.in);
+        
             boolean matrix = false;
             int k=0;
 
             System.out.println("--------------------------------");
             System.out.print("input Nilai\t: ");
             nilaiX = key.nextInt();
-            // key.close();
             nilaiY = FungsiY(M, nilaiX, C);
             
             for(int j=0; j<batas;j++) {
@@ -90,8 +88,8 @@ public class Regresi{
     }
 
     //method for Fungsi Y
-    public static int FungsiY(int M, int x, int C) {
-        int hasil;
+    public static float FungsiY(Float M, Float x, Float C) {
+        float hasil;
         hasil = M*x+C;
         return hasil;        
     }
